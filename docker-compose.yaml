@@ -1,0 +1,18 @@
+services:
+  emulator:
+    build:
+      context: .
+      dockerfile: emulators.Dockerfile
+    ports:
+      - "9001:9001"
+      - "5001:5001"
+      - "4000:4000"
+    tty: true
+  vite:
+    build:
+      context: .
+      dockerfile: vite.Dockerfile
+    volumes:
+      - ./:/app
+    ports:
+      - "3000:3000"
